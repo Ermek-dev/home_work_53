@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <title>Cat info</title>
+</head>
+<body>
+<h2>Cat info</h2>
+<div class="form">
+    <form action="/cat_stats/" method="post">
+        {% csrf_token %}
+        <div class="group">
+            <div class="text">
+                <p>Кот - {{cat_name}}</p>
+                <p>Возраст - {{cat_age}} год</p>
+                <p>Уровень счастья - {{hapiness_level}}</p>
+                <p>Уровень сытости - {{satiety_level}}</p>
+                <p>{{action}}</p>
+            </div>
+        </div>
+        <div class="images">
+            <img  src="{% static "images/cat-s.jpg" %}">
+        </div>
+    <select name="action">
+        <option>Выберите действие</option>
+        <option value="play" name="play">Поиграть с котом</option>
+        <option value="feed" name="feed">Покормить кота</option>
+        <option value="sleep" name="sleep">Уложить спать кота</option>
+    </select>
+    <br>
+    <br>
+    <input type="submit" value="Подтвердить">
+    </form>
+</div>
+</body>
+</html>
