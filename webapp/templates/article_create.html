@@ -1,15 +1,10 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Article Create</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Article Create {% endblock %}
+
+{% block content %}
 <h1>New Article</h1>
 <div class="form">
-    <form action="/article/add/" method="post">
+    <form action="{% url 'article_add' %}" method="post">
         {% csrf_token %}
         <div class="form_row">
             <label for="title">Title</label>
@@ -28,5 +23,4 @@
         </div>
     </form>
 </div>
-</body>
-</html>
+{% endblock %}

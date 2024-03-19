@@ -1,18 +1,14 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Article</title>
-</head>
-<body>
+{% extends 'base.html %}
+{% block title %} Article {% endblock %}
+{% block menu %}
+    <a href="{% url 'article_add' %}">Add Article</a>
+{% endblock %}
+{% block content %}
+<div class="container">
     <h1>Article</h1>
-    <p>
-        <a href="/">На главную</a>
-    </p>
     <p>Title: {{article.title }}</p>
     <p>Text: {{ article.text }}</p>
     <p>Author: {{ article.author }}</p>
-</body>
-</html>
+</div>
+
+{% endblock %}
